@@ -18,6 +18,11 @@ jobs:
           cd terraform
           terraform init
 
+      - name: Show Terraform State
+        run: |
+          cd terraform
+          terraform state list  # List all resources in the state
+
       - name: Destroy Infrastructure
         run: |
           cd terraform
