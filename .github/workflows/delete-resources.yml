@@ -14,10 +14,14 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Initialize Terraform
-        run: terraform init
+        run: |
+          cd terraform
+          terraform init
 
       - name: Destroy Infrastructure
-        run: terraform destroy -auto-approve
+        run: |
+          cd terraform
+          terraform destroy -auto-approve
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
